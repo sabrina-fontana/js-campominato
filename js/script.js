@@ -8,11 +8,16 @@ function noRepeatNumber(array, num) {
   return (array.indexOf(num) === -1);
 }
 
+function errorNumber(num) {
+  return (isNaN(num) || num < 1 || num > 100 || num.length > 3);
+}
+
 // variabili
 var numeroRandom;
 var numeriComputer = [];
 var numeroScelto;
 var numeriUtente = [];
+var mina = false;
 var punteggio = document.getElementById('punteggio');
 
 // IL COMPUTER DEVE GENERARE 16 NUMERI CASUALI DA 1 A 100 CHE NON POSSONO ESSERE DUPLICATI
@@ -24,12 +29,13 @@ while (numeriComputer.length < 16) {
     numeriComputer.push(numeroRandom);
   }
 }
-console.log(numeriComputer);
+console.log('I numeri randomici creati dal computer sono: ' + numeriComputer);
 // CHIEDO ALL'UTENTE N VOLTE DI INSERIRE UN NUMERO COMPRESO TRA 1 E 100; NON PUO' INSERIRE PIU' VOLTE LO STESSO NUMERO
 // il ciclo continua fino a che il numero inserito dall'utente corrisponde a uno dei numeri randomici creati dal computer
+
 while (!numeriComputer.includes(numeroScelto)) {
   numeroScelto = prompt('Inserisci un numero da 1 a 100');
-  if (isNaN(numeroScelto) || numeroScelto < 1 || numeroScelto > 100 || numeroScelto.length > 3) {
+  if (errorNumber(numeroScelto)) {
     alert('Inserisci un numero da 1 a 100');
   } else {
     numeroScelto = parseInt(numeroScelto);
@@ -40,4 +46,5 @@ while (!numeriComputer.includes(numeroScelto)) {
   }
 }
 
+// length - 1 perchè l'ultimo valore pushato nell'array è quello errato che ha fatto terminare il gioco
 punteggio.innerHTML = 'Il tuo punteggio è ' + (numeriUtente.length - 1);
