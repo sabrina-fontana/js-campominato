@@ -45,7 +45,7 @@ if (levelNotValid(sceltaLivello)) {
       numeroMax = 50;
     }
     // IL COMPUTER DEVE GENERARE 16 NUMERI CASUALI DA 1 A NUMEROMAX CHE NON POSSONO ESSERE DUPLICATI
-    // creo un ciclo che si ripete fino a che l'array  ha 16 elementi e ogni volta pusho il numero randomico nell'array numeriComputer SOLO SE ancora non lo include
+    // creo un ciclo che si ripete fino a che l'array ha 16 elementi e ogni volta pusho il numero randomico nell'array numeriComputer SOLO SE ancora non lo include
     while (numeriComputer.length < 16) {
       numeroRandom = randomNumber(1, numeroMax);
       // controllo che non ci siano numeri uguali nell'array
@@ -65,7 +65,7 @@ if (levelNotValid(sceltaLivello)) {
 
         if (!noRepeatNumber(numeriUtente, numeroScelto)) {
           alert('Non puoi inserire lo stesso numero più volte.');
-        } else if (noRepeatNumber(numeriUtente, numeroScelto) && !numeriComputer.includes(numeroScelto)) {
+        } else if (!numeriComputer.includes(numeroScelto)) {
           numeriUtente.push(numeroScelto);
         }
         console.log(numeroScelto);
@@ -74,7 +74,4 @@ if (levelNotValid(sceltaLivello)) {
     testoPunteggio.innerHTML = 'Il tuo punteggio è ' + (numeriUtente.length);
     // se l'utente vuole giocare ancora ricarico la pagina al click sul button
     testoPunteggio.innerHTML += '<br><br><button onClick="window.location.reload();">Vuoi giocare ancora?</button>';
-
-
-
   }
