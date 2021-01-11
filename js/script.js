@@ -5,6 +5,7 @@ function randomNumber(min, max) {
 }
 
 function noRepeatNumber(array, num) {
+  // oppure array.includes(num)
   return (array.indexOf(num) === -1);
 }
 
@@ -30,8 +31,7 @@ while (numeriComputer.length < 16) {
 }
 console.log('I numeri randomici creati dal computer sono: ' + numeriComputer);
 // CHIEDO ALL'UTENTE MAX 84 VOLTE DI INSERIRE UN NUMERO COMPRESO TRA 1 E 100; NON PUO' INSERIRE PIU' VOLTE LO STESSO NUMERO
-// il ciclo continua fino a che il numero inserito dall'utente corrisponde a uno dei numeri randomici creati dal computer
-
+// e  il ciclo continua fino a che il numero inserito dall'utente corrisponde a uno dei numeri randomici creati dal computer
 while (!numeriComputer.includes(numeroScelto) && numeriUtente.length < 84) {
   numeroScelto = prompt('Inserisci un numero da 1 a 100');
   if (errorNumber(numeroScelto)) {
